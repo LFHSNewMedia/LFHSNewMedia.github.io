@@ -1,0 +1,114 @@
+@import "fonts.scss";
+
+$mobile-breakpoint: 640px;
+
+// Declare dark theme first, just in case browser doesn't support
+// prefers-color-scheme media query
+:root {
+    --background-rgb: 8, 8, 8;
+    --foreground-rgb: 255, 255, 255;
+    --background-color: rgb(var(--background-rgb));
+    --foreground-color: rgb(var(--foreground-rgb));
+    --accent-hue: 50;
+    --accent-color: hsl(var(--accent-hue), 100%, 60%);
+    --table-padding: 16px;
+}
+
+// LIGHT THEME
+@media (prefers-color-scheme: light) {
+    :root {
+        --background-rgb: 255, 255, 255;
+        --foreground-rgb: 8, 8, 8;
+        --accent-color: hsl(var(--accent-hue), 100%, 35%);
+    }
+}
+
+// DARK THEME (default)
+@media (prefers-color-scheme: dark),
+(prefers-color-scheme:no-preference) {
+    :root {
+        --background-rgb: 8, 8, 8;
+        --foreground-rgb: 255, 255, 255;
+        --accent-color: hsl(var(--accent-hue), 100%, 60%);
+    }
+}
+
+a {
+    color: var(--accent-color);
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+body {
+    /* Center vertically and horizontally */
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--foreground-color);
+    background-color: var(--background-color);
+    font-family: "Inter var", "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    width: 640px;
+
+    @media (max-width: $mobile-breakpoint)
+    {
+        width: 320px;
+    }
+}
+
+main > header > svg {
+    width: 640px;
+    height: 360px;
+
+    @media (max-width: $mobile-breakpoint)
+    {
+        width: 320px;
+        height: 180px;
+    }
+}
+
+main > nav > ul {
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+
+    @media (max-width: $mobile-breakpoint)
+    {
+        flex-direction: column;
+    }
+}
+
+main > nav > ul > li {
+    text-align: center;
+    flex-grow: 1;
+    font-size: 24px;
+    font-weight: 600;
+
+    @media (max-width: $mobile-breakpoint)
+    {
+        margin:8px 0;
+    }
+}
+
+div.contribute {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    opacity: 0.25;
+    font-size: 12px;
+}

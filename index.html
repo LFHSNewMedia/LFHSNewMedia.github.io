@@ -1,0 +1,16 @@
+---
+layout: default
+---
+<main>
+    <header>
+        {% include svg/lfhslogotraceflattened.svg %}
+    </header>
+
+    <nav>
+        <ul>
+            {% for link in site.links %}
+            <li><a href="{{ link.destination }}" target="_blank">{{ link.title }}</a></li>
+            {% endfor %}
+        </ul>
+    </nav>
+</main>
